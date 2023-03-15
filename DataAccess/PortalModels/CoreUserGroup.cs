@@ -1,0 +1,23 @@
+﻿using System;
+using System.Collections.Generic;
+
+// Code scaffolded by EF Core assumes nullable reference types (NRTs) are not used or disabled.
+// If you have enabled NRTs for your project, then un-comment the following line:
+// #nullable disable
+
+namespace DataAccess.PortalModels
+{
+    public partial class CoreUserGroup
+    {
+        public int? UserId { get; set; }
+        public int GroupId { get; set; }
+        public bool? IsManager { get; set; }
+        public bool? IsClerk { get; set; }
+        public bool? IsExtra { get; set; }
+        public string Title { get; set; }
+        public int? JobTitleId { get; set; }
+        public int ItemId { get; set; }
+
+        public virtual CoreUsers User { get; set; }
+    }
+}

@@ -1,0 +1,43 @@
+﻿<UserControl x:Class="DelUserApp.View01"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:DelUserApp"
+             mc:Ignorable="d" 
+             xmlns:mah="http://metro.mahapps.com/winfx/xaml/controls"
+             xmlns:mashare="http://metro.mahapps.com/winfx/xaml/shared"
+             d:DesignHeight="450" d:DesignWidth="800"
+             Loaded="UserControl_Loaded"
+             >
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height=".7*"/>
+
+            <RowDefinition Height="3*"/>
+            <RowDefinition Height="1.5*"/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="2*"/>
+            <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
+
+
+        <GroupBox Grid.Row="1" Header="Nhập mã nhân viên" Padding="5" Margin="0,0,10,0">
+            <RichTextBox x:Name="rtxtInput" VerticalScrollBarVisibility="Auto" VerticalAlignment="Stretch" VerticalContentAlignment="Stretch" ></RichTextBox>
+        </GroupBox>
+
+
+
+        <GroupBox Grid.Row="1" Grid.Column="1" Padding="5" Header="Log" Margin="10,0,0,0">
+
+            <TextBlock TextWrapping="Wrap" x:Name="txtLogs" VerticalAlignment="Stretch">
+           
+                   
+            
+            </TextBlock>
+        </GroupBox>
+
+        <Button x:Name="btnDel" Click="btnDel_Click" Grid.Row="3" Height="48" MaxWidth="100" ClipToBounds="True" Grid.ColumnSpan="2">Xóa</Button>
+    </Grid>
+</UserControl>

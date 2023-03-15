@@ -1,0 +1,36 @@
+﻿<mah:MetroWindow x:Class="DelUserApp.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:mah="http://metro.mahapps.com/winfx/xaml/controls"
+        xmlns:local="clr-namespace:DelUserApp"
+        ShowIconOnTitleBar="True"
+        IconBitmapScalingMode="HighQuality"
+        IconScalingMode="ScaleDownLargerFrame"
+        Icon="/Assets/img/logohbcop2.png"
+        mc:Ignorable="d"
+        Title="Multiple Blocking Tool" Height="450" Width="800" WindowStartupLocation="CenterScreen">
+    <Grid>
+        <mah:MetroTabControl>
+            <mah:MetroTabItem Header="Khóa người dùng">
+                <local:View01/>
+            </mah:MetroTabItem>
+        </mah:MetroTabControl>
+        <StackPanel Margin="10" VerticalAlignment="Top" HorizontalAlignment="Right">
+            <Label Content="Themes:"/>
+            <StackPanel Orientation="Horizontal">
+                <ComboBox SelectedItem="{Binding SelectedStringTheme, Mode=TwoWay}" SelectedValuePath="Content" IsEditable="True" IsReadOnly="False" Focusable="True" Text="Choose theme ..." x:Name="cbThemes">
+                   
+                </ComboBox>
+                <ComboBox SelectedItem="{Binding SelectedStringColor, Mode=TwoWay}" SelectedValuePath="Content" IsEditable="True" IsReadOnly="True" Focusable="False" Text="Choose color ..." x:Name="cbStyle">
+                   
+                </ComboBox>
+
+                <Button x:Name="btnChangeTheme" Content="Change" Click="btnChangeTheme_Click">
+                    
+                </Button>
+            </StackPanel>
+        </StackPanel>
+    </Grid>
+</mah:MetroWindow>

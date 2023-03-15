@@ -1,0 +1,14 @@
+E:\Projects\DeleteUsersTool\DelUserApp\DataAccess\bin\Release\netcoreapp3.1\appsettings.json
+E:\Projects\DeleteUsersTool\DelUserApp\DataAccess\bin\Release\netcoreapp3.1\DataAccess.dll.config
+E:\Projects\DeleteUsersTool\DelUserApp\DataAccess\bin\Release\netcoreapp3.1\DataAccess.deps.json
+E:\Projects\DeleteUsersTool\DelUserApp\DataAccess\bin\Release\netcoreapp3.1\DataAccess.runtimeconfig.json
+E:\Projects\DeleteUsersTool\DelUserApp\DataAccess\bin\Release\netcoreapp3.1\DataAccess.runtimeconfig.dev.json
+E:\Projects\DeleteUsersTool\DelUserApp\DataAccess\bin\Release\netcoreapp3.1\DataAccess.dll
+E:\Projects\DeleteUsersTool\DelUserApp\DataAccess\bin\Release\netcoreapp3.1\DataAccess.pdb
+E:\Projects\DeleteUsersTool\DelUserApp\DataAccess\obj\Release\netcoreapp3.1\DataAccess.csprojAssemblyReference.cache
+E:\Projects\DeleteUsersTool\DelUserApp\DataAccess\obj\Release\netcoreapp3.1\DataAccess.AssemblyInfoInputs.cache
+E:\Projects\DeleteUsersTool\DelUserApp\DataAccess\obj\Release\netcoreapp3.1\DataAccess.AssemblyInfo.cs
+E:\Projects\DeleteUsersTool\DelUserApp\DataAccess\obj\Release\netcoreapp3.1\DataAccess.csproj.CoreCompileInputs.cache
+E:\Projects\DeleteUsersTool\DelUserApp\DataAccess\obj\Release\netcoreapp3.1\DataAccess.dll
+E:\Projects\DeleteUsersTool\DelUserApp\DataAccess\obj\Release\netcoreapp3.1\DataAccess.pdb
+E:\Projects\DeleteUsersTool\DelUserApp\DataAccess\obj\Release\netcoreapp3.1\DataAccess.genruntimeconfig.cache
