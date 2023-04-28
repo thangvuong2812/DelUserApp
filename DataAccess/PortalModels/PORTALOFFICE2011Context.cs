@@ -4,6 +4,9 @@ using System.IO;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata;
 using Microsoft.Extensions.Configuration;
+using Microsoft.Extensions.Logging;
+using Microsoft.Extensions.Logging.Console;
+using Microsoft.Extensions.Logging.Debug;
 using Microsoft.IdentityModel.Protocols;
 
 // Code scaffolded by EF Core assumes nullable reference types (NRTs) are not used or disabled.
@@ -14,6 +17,21 @@ namespace DataAccess.PortalModels
 {
     public partial class PORTALOFFICE2011Context : DbContext
     {
+
+        //https://stackoverflow.com/questions/53690820/how-to-create-a-loggerfactory-with-a-consoleloggerprovider
+        //https://stackoverflow.com/questions/45893732/how-do-you-show-underlying-sql-query-in-ef-core
+        public static readonly ILoggerFactory loggerFactory = LoggerFactory.Create(builder => {
+            builder.AddFilter(DbLoggerCategory.Query.Name, LogLevel.Information);
+            builder.AddDebug();
+        });
+        //public static readonly ILogger loggerFactory = new DebugLoggerProvider().CreateLogger("");
+        //public static readonly ILoggerFactory loggerFactory = LoggerFactory.Create(builder =>
+        //{
+        //    builder.AddFilter("Microsoft.EntityFrameworkCore.*", LogLevel.Warning)
+
+        //           .AddFilter("DelUserApp", LogLevel.Debug)
+        //           .AddDebug();
+        //});
         public PORTALOFFICE2011Context()
         {
         }
@@ -21,7 +39,8 @@ namespace DataAccess.PortalModels
         public PORTALOFFICE2011Context(DbContextOptions<PORTALOFFICE2011Context> options)
             : base(options)
         {
-            this.Database.SetCommandTimeout(1000);
+
+            this.ChangeTracker.LazyLoadingEnabled = false;
         }
 
         public virtual DbSet<CoreUserGroup> CoreUserGroup { get; set; }
@@ -30,8 +49,7 @@ namespace DataAccess.PortalModels
         public virtual DbSet<HrmEmployees> HrmEmployees { get; set; }
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
-        {
-            
+        {   
             if (!optionsBuilder.IsConfigured)
             {
 #warning To protect potentially sensitive information in your connection string, you should move it out of source code. See http://go.microsoft.com/fwlink/?LinkId=723263 for guidance on storing connection strings.
@@ -40,6 +58,8 @@ namespace DataAccess.PortalModels
                .SetBasePath(currPath)
                .AddJsonFile("appsettings.json").Build().GetConnectionString("PortalDB");
 
+                //Add LoggerFaco
+                optionsBuilder.UseLoggerFactory(loggerFactory);
                 optionsBuilder.UseSqlServer(connStr);
             }
         }

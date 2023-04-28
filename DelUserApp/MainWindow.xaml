@@ -4,6 +4,7 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:mah="http://metro.mahapps.com/winfx/xaml/controls"
+        xmlns:iconPacks="http://metro.mahapps.com/winfx/xaml/iconpacks"
         xmlns:local="clr-namespace:DelUserApp"
         ShowIconOnTitleBar="True"
         IconBitmapScalingMode="HighQuality"
@@ -11,7 +12,22 @@
         Icon="/Assets/img/logohbcop2.png"
         mc:Ignorable="d"
         Title="Multiple Blocking Tool" Height="450" Width="800" WindowStartupLocation="CenterScreen">
+    <mah:MetroWindow.RightWindowCommands>
+        <mah:WindowCommands>
+            <Button x:Name="btnLogout" Click="btnLogout_Click" Content="Đăng xuất">
+                <Button.ContentTemplate>
+                    <DataTemplate>
+                        <StackPanel Orientation="Horizontal">
+                            <iconPacks:PackIconBootstrapIcons Width="22" Height="22" Kind="ArrowLeftCircle" VerticalAlignment="Center"/>
+                            <TextBlock Margin="4 0 0 0" VerticalAlignment="Center" Text="{Binding}" />
+                        </StackPanel>
+                    </DataTemplate>
+                </Button.ContentTemplate>
+            </Button>
+        </mah:WindowCommands>
+    </mah:MetroWindow.RightWindowCommands>
     <Grid>
+       
         <mah:MetroTabControl>
             <mah:MetroTabItem Header="Khóa người dùng">
                 <local:View01/>
@@ -20,10 +36,10 @@
         <StackPanel Margin="10" VerticalAlignment="Top" HorizontalAlignment="Right">
             <Label Content="Themes:"/>
             <StackPanel Orientation="Horizontal">
-                <ComboBox SelectedItem="{Binding SelectedStringTheme, Mode=TwoWay}" SelectedValuePath="Content" IsEditable="True" IsReadOnly="False" Focusable="True" Text="Choose theme ..." x:Name="cbThemes">
+                <ComboBox SelectedItem="{Binding SelectedStringTheme, Mode=TwoWay}"  IsEditable="True" IsReadOnly="False" Focusable="True" Text="Choose theme ..." x:Name="cbThemes">
                    
                 </ComboBox>
-                <ComboBox SelectedItem="{Binding SelectedStringColor, Mode=TwoWay}" SelectedValuePath="Content" IsEditable="True" IsReadOnly="True" Focusable="False" Text="Choose color ..." x:Name="cbStyle">
+                <ComboBox SelectedItem="{Binding SelectedStringColor, Mode=TwoWay}" IsEditable="True" IsReadOnly="True" Focusable="False" Text="Choose color ..." x:Name="cbStyle">
                    
                 </ComboBox>
 
@@ -31,6 +47,7 @@
                     
                 </Button>
             </StackPanel>
+        
         </StackPanel>
     </Grid>
 </mah:MetroWindow>

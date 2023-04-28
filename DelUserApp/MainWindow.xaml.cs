@@ -76,5 +76,14 @@ namespace DelUserApp
             ChangeTheme(SelectedStringTheme, SelectedStringColor);
             Settings.Default.Save();
         }
+
+        private void btnLogout_Click(object sender, RoutedEventArgs e)
+        {
+            LoginManager.Logout();
+            LoginWindow loginWindow = new LoginWindow();
+            loginWindow.Show();
+            Window window = Window.GetWindow(this);
+            window.Close();
+        }
     }
 }

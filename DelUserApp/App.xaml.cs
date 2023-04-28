@@ -25,6 +25,25 @@ namespace DelUserApp
             string colorBase = Settings.Default.ColorBase;
             ThemeManager.Current.ChangeTheme(this, colorScheme + "." + colorBase);
 
+            //Keep login at here
+
+            string userName = LocalStorageManagement.UnProtect(Settings.Default.UserName);
+            string passWord = LocalStorageManagement.UnProtect(Settings.Default.PassWord);
+            LoginManager loginManager = new LoginManager(userName, passWord);
+            bool isAuth = loginManager.CheckUser();
+            if(string.IsNullOrEmpty(Settings.Default.ExpireLoginTime)) 
+            { 
+                MainWindow = new LoginWindow();
+            }
+            else
+            {
+                DateTime ExpireTime = DateTime.Parse(Settings.Default.ExpireLoginTime);
+                if (isAuth && DateTime.Compare(ExpireTime, DateTime.Now) < 1)
+                    MainWindow = new MainWindow();
+                else
+                MainWindow = new LoginWindow();
+            }
+            MainWindow.Show();
         }
     }
 }

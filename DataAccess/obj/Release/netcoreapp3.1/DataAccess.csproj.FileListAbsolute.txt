@@ -1,5 +1,3 @@
-E:\Projects\DeleteUsersTool\DelUserApp\DataAccess\bin\Release\netcoreapp3.1\appsettings.json
-E:\Projects\DeleteUsersTool\DelUserApp\DataAccess\bin\Release\netcoreapp3.1\DataAccess.dll.config
 E:\Projects\DeleteUsersTool\DelUserApp\DataAccess\bin\Release\netcoreapp3.1\DataAccess.deps.json
 E:\Projects\DeleteUsersTool\DelUserApp\DataAccess\bin\Release\netcoreapp3.1\DataAccess.runtimeconfig.json
 E:\Projects\DeleteUsersTool\DelUserApp\DataAccess\bin\Release\netcoreapp3.1\DataAccess.runtimeconfig.dev.json

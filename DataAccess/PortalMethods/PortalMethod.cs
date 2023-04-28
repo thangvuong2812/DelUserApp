@@ -4,6 +4,7 @@ using Microsoft.Data.SqlClient;
 using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
 using System.Text;
 using System.Text.RegularExpressions;
@@ -19,6 +20,7 @@ namespace DataAccess.PortalMethods
         private PortalMethod ()
         {
             context = new PORTALOFFICE2011Context();
+            
         }
 
         public static PortalMethod GetInstance()
@@ -55,9 +57,9 @@ namespace DataAccess.PortalMethods
 
             var result = command.ExecuteScalar();
             context.Database.GetDbConnection().Close();
+             
             return (int)returnValue.Value;
             //var result = context.CoreUsers.FromSqlRaw("EXEC [dbo].[Core_MultiBlock_CheckLogin] @UserName, @PasswordHash, @ReturnValue OUTPUT", new SqlParameter("@UserName", userName).SqlDbType = System.Data.SqlDbType.NVarChar, new SqlParameter("@PasswordHash", passwordHash).SqlDbType = System.Data.SqlDbType.NVarChar, returnValue).ToList();
-    
         }
 
         public BOUserId CheckExistUser(string[] employeeCodes)
@@ -164,6 +166,9 @@ namespace DataAccess.PortalMethods
         public async Task CloseConnection()
         {
             await context.DisposeAsync();
+            instance = null;
         }
+
+        
     }
 }

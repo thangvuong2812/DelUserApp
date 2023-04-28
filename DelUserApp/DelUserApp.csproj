@@ -8,10 +8,16 @@
 
   <ItemGroup>
     <None Remove="Assets\img\logohbcop2.png" />
+    <None Remove="HBC.ico" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Content Include="HBC.ico" />
   </ItemGroup>
 
   <ItemGroup>
     <PackageReference Include="MahApps.Metro" Version="2.4.9" />
+    <PackageReference Include="MahApps.Metro.IconPacks" Version="4.11.0" />
   </ItemGroup>
 
   <ItemGroup>
@@ -31,6 +37,9 @@
   </ItemGroup>
 
   <ItemGroup>
+    <None Update="appsettings.json">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
     <None Update="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>

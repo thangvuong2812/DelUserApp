@@ -25,6 +25,7 @@ namespace DelUserApp
 
         private string _errorMessage = string.Empty;
         public string ErrorMessage { get => _errorMessage; set { _errorMessage = value; OnPropertyChanged(nameof(ErrorMessage));} }
+        private LoginManager _loginManager;
         public LoginView()
         {
             InitializeComponent();
@@ -41,14 +42,16 @@ namespace DelUserApp
         }
         private void loginButton_ClickAsync(object sender, RoutedEventArgs e)
         {
-            string userName = txtUserName.Text;
-            string passWord = txtPass.Password;
+            bool? isRemember = chkRemember.IsChecked;
+            _loginManager = new LoginManager(txtUserName.Text, txtPass.Password);
 
-            int isExistAdminUser = PortalMethod.GetInstance().CheckLogin(userName, passWord);
-
-            if (isExistAdminUser != 0)
+            var isLogin = _loginManager.CheckUser();
+            if (isLogin)
             {
-                
+                if(isRemember == true)
+                {
+                    _loginManager.KeepLogin();
+                }
                 MainWindow mainWindow = new MainWindow();
                 mainWindow.Show();
                 //Close LoginWindow
@@ -67,5 +70,10 @@ namespace DelUserApp
                 IsEnabledError = true;
             }
         }
+
+     
+
+     
+
     }
 }

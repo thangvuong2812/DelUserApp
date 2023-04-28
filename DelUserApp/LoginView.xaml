@@ -14,7 +14,6 @@
             <RowDefinition Height="Auto"/>
             <RowDefinition Height="Auto"/>
         </Grid.RowDefinitions>
-    
         <StackPanel Grid.Row="0" Orientation="Horizontal" HorizontalAlignment="Center">
             <Label Content="Username: " VerticalAlignment="Center"/>
             <TextBox Width="250" x:Name="txtUserName" Margin="5 0 0 0"/>
@@ -23,8 +22,8 @@
             <Label Content="Password: " VerticalAlignment="Center"/>
             <PasswordBox Width="250" x:Name="txtPass" Margin="5 0 0 0"/>
         </StackPanel>
-        <CheckBox x:Name="rememberMeCheckBox" Grid.Row="2" Content="Remember me" Margin="5 10 0 0" HorizontalAlignment="Center"/>
+        <CheckBox x:Name="chkRemember" Grid.Row="2" Content="Remember me" Margin="5 10 0 0" HorizontalAlignment="Center"/>
         <Button IsDefault="True" x:Name="loginButton" Width="200" Grid.Row="3" Content="Log in" Margin="5 10 0 0" Click="loginButton_ClickAsync"/>
-        <TextBox x:Name="txtError" Margin="0 10 0 0" HorizontalAlignment="Center" BorderThickness="0" IsReadOnly="True" Grid.Row="4" IsEnabled="{Binding IsEnabledError, Mode=OneWay}" Text="{Binding ErrorMessage, Mode=OneWay}" Foreground="Red"/>
+        <TextBox IsEnabled="True" Background="Transparent" x:Name="txtError" Margin="0 10 0 0" HorizontalAlignment="Center" BorderThickness="0" IsReadOnly="True" Grid.Row="4"  Text="{Binding ErrorMessage, Mode=OneWay}" Foreground="Red"/>
     </Grid>
 </UserControl>

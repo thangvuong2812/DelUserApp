@@ -94,6 +94,7 @@ namespace DelUserApp
                 Task handleExistUserTask = Task.Run(() => HandleExistUserIds(userIdExist, handleEmployeeCode));
                 Task handleNotExistUserTask = Task.Run(() => HandleNotExisUserIds(employeeCodeNotExist));
                 Task.WhenAll(handleExistUserTask, handleNotExistUserTask).ConfigureAwait(false).GetAwaiter();
+                rtxtInput.Document.Blocks.Clear();
             }
             catch(Exception ex)
             {
@@ -119,7 +120,7 @@ namespace DelUserApp
             //    Logs = new BindableStringBuilder();
 
             //Logs.AppendLine(message, typeLog);
-            txtLogs.Dispatcher.Invoke(() => {
+            txtLogs.Dispatcher.BeginInvoke((Action)(() => {
                 Run newRun = new Run(message + "\n");
                 switch (typeLog)
                 {
@@ -127,11 +128,11 @@ namespace DelUserApp
                         newRun.Foreground = Brushes.Red;
                         break;
                     case TypeLog.Info:
-                        newRun.Foreground = Brushes.Blue;
+                        newRun.Foreground = Brushes.Cyan;
 
                         break;
                     case TypeLog.Success:
-                        newRun.Foreground = Brushes.Green;
+                        newRun.Foreground = Brushes.LightGreen;
 
                         break;
                     case TypeLog.Warning:
@@ -141,7 +142,7 @@ namespace DelUserApp
                         break;
                 }
                 txtLogs.Inlines.Add(newRun);
-            });
+            }));
             //txtLogs.Dispatcher.Invoke(() => txtLogs.Inlines.Add(newRun));
             //txtLogs.Dispatcher.Invoke(() => txtLogs.ScrollToEnd());
         }
@@ -158,6 +159,12 @@ namespace DelUserApp
             }
         }
 
+        private void ClearRichText(RichTextBox rtb)
+        {
+            TextRange textRange  = new TextRange(rtb.Document.ContentStart, rtb.Document.ContentEnd);
+            string outputString = ReplaceSpaceOrTab(textRange.Text);
+            return outputString;
+        }
         private string StringFromRichText(RichTextBox rtb)
         {
             TextRange textRange = new TextRange(rtb.Document.ContentStart, rtb.Document.ContentEnd);
